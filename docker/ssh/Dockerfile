@@ -5,7 +5,8 @@ ARG SSH_PASS
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    openssh-server
+    openssh-server \
+    sudo
 
 RUN mkdir /var/run/sshd
 
