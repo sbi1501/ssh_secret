@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Home</h1>
+
+<p>You have access to the following record counts:</p>
+<ul>
+    <li><strong>Teams:</strong> {{ num_teams }}</li>
+    <li><strong>Secrets:</strong> {{ num_secrets }}</li>
+</ul>
+
+{% endblock %}
