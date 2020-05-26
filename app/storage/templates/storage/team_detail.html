@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Name: {{ team.name }}</h1>
+
+<p>
+    <strong>Members:</strong>
+    {% for member in team.members.all %}
+    {{ member }}
+    {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+
+<div style="margin-left:20px;margin-top:20px">
+    <h4>Secrets:</h4>
+
+    {% for secret in team.secrets.all %}
+    <hr>
+    <p><strong>Name:</strong> {{secret.name}}</p>
+    <p><strong>Owner:</strong> {{secret.owner}}</p>
+    <p><strong>Content:</strong> {{secret.content}}</p>
+    <p class="text-muted"><strong>Id:</strong> {{secret.id}}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Team list</h1>
+
+{% if team_list %}
+<ul>
+
+    {% for team in team_list %}
+    <li>
+        <a href="{{ team.get_absolute_url }}">{{ team.name }}</a>
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>There are no teams in the storage.</p>
+{% endif %}
+
+{% endblock %}
