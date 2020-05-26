@@ -26,8 +26,6 @@ services:
                 SSH_PASS: ${SSH_PASS}
         ports:
             - "2222:22"
-        env_file:
-            - ./.env.dev
 
 volumes:
   postgres_data:
