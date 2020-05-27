@@ -9,3 +9,7 @@ urlpatterns = [
     path('my-secrets/', views.MySecretListView.as_view(), name='my-secrets'),
     path('my-secret/<uuid:pk>', views.MySecretDetailView.as_view(), name='my-secret-detail'),
 ]
+
+urlpatterns  += [
+    path('api/teams/', views.TeamView.as_view()),
+]

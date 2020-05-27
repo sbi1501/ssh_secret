@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Team, Secret
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import TeamSerializer
 
 
 def index(request):
@@ -22,6 +25,13 @@ def index(request):
 class TeamListView(generic.ListView):
     model = Team
     paginate_by = 10
+
+
+class TeamView(APIView):
+    def get(self, request):
+        teams = Team.objects.all()
+        serializer = TeamSerializer(teams, many=True)
+        return Response({'teams': serializer.data})
 
 
 class TeamDetailView(generic.DetailView):
